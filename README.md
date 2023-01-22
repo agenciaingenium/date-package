@@ -22,3 +22,14 @@ for ($i = 1; $i <= 12; $i++) {
 }
 print_r($meses);
 ```
+Opción 3
+
+```
+$meses = array();
+$mes = Carbon::create(date('Y'), 1, 1, 0);
+for ($i = 1; $i <= 12; $i++) {
+    $meses[] = $mes->locale('es')->monthName;
+    $mes = $mes->copy()->addMonth();
+}
+print_r($meses);
+```
